@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<title>Example of the most easy way to implement the broadcast</title>
+<script type="text/javascript" src="basestation.js"></script>
+</head>
+<body>
+	<h1>Results in the console</h1>
+<script type="text/javascript">
+	BaseStation.add('Client1', function() {
+		var nAge = 25;
+		var sName = 'Zane';
+
+		return {
+			onInitialize: function() {
+				console.log(sName + ' Initialize');
+			},
+			onGrowUp: function() {
+				nAge++;
+				console.log('My age is '+ nAge +'!!!')
+			},
+			onSaySomething: function(str, str1) {
+				console.log(sName + 'said: ' + str + ' '+ str1);
+			}
+		};
+	}());
+
+
+	/* Call */
+	BaseStation.broadcast('Initialize');
+	BaseStation.broadcast('GrowUp');
+	BaseStation.broadcast('SaySomething',['yes', 'hahahahaha']);
+	BaseStation.broadcast('GrowUp');						// again
+	BaseStation.broadcast('NonregisterEvent'); 				// this call is safely ignored
+</script>
+</body>
+</html>

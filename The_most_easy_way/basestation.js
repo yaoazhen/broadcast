@@ -3,9 +3,25 @@
 *	# The Core Of This Lib
 *	# To Broadcast Message To Other Component
 */
-var BaseStation = function(){
+;(function(name, factory){
+	var hasDefine = typeof define === 'function' && define.amd,
+	hasExports = typeof moudule !== 'undefined' && moudule.exports;
+
+	if(hasDefine){/*AMD Module*/
+		define(factory);
+	}
+	else if(hasExports){/*Node.js Module*/
+		// Node. Does not work with strict CommonJS, but
+        // only CommonJS-like enviroments that support module.exports,
+        // like Node.
+		moudule.exports = factory();
+	}
+	else{
+		/*Assign to common namespaces or simply the global object (window)*/
+		this[name] = factory();
+	}
+})('BaseStation', function(){
 	var base_station_debug = function(){
-		// console.log or air.trace as desired
 		if(console){
 			console.dir(args);
 		}
@@ -61,11 +77,10 @@ var BaseStation = function(){
 	};
 
 	return {
-		name		: 'BaseStation',
 		broadcast	: broadcast,
 		add			: addComponent,
 		remove		: removeComponent,
 		get 		: getComponent,
 		has			: has
 	};
-}();
+});

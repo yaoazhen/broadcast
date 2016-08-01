@@ -20,7 +20,7 @@
 		/*Assign to common namespaces or simply the global object (window)*/
 		this[name] = factory();
 	}
-})('BaseStation', function(){
+})('broadcast', function(){
 	var base_station_debug = function(){
 		if(console){
 			console.dir(args);
@@ -29,7 +29,7 @@
 
 	var components = {};
 
-	var broadcast = function(event, args, context){
+	var listen = function(event, args, context){
 		var e = event || false;
 		var a = args || [];
 		if(!e){
@@ -77,7 +77,7 @@
 	};
 
 	return {
-		broadcast	: broadcast,
+		listen	: listen,
 		add			: addComponent,
 		remove		: removeComponent,
 		get 		: getComponent,

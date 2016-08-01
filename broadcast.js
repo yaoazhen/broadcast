@@ -29,7 +29,7 @@
 
 	var components = {};
 
-	var listen = function(event, args, context){
+	var trigger = function(event, args, context){
 		var e = event || false;
 		var a = args || [];
 		if(!e){
@@ -77,10 +77,10 @@
 	};
 
 	return {
-		listen	: listen,
-		add			: addComponent,
-		remove		: removeComponent,
-		get 		: getComponent,
-		has			: has
+		trigger	: trigger,
+		add		: addComponent,
+		remove	: removeComponent,
+		get 	: getComponent,
+		has		: has
 	};
 });

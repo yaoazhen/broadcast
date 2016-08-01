@@ -28,11 +28,11 @@
 
 
 	/* Call */
-	broadcast.listen('Initialize');
-	broadcast.listen('GrowUp');
-	broadcast.listen('SaySomething',['yes', 'hahahahaha']);
-	broadcast.listen('GrowUp');				// again
-	broadcast.listen('NonregisterEvent'); 	// this call is safely ignored
+	broadcast.trigger('Initialize');
+	broadcast.trigger('GrowUp');
+	broadcast.trigger('SaySomething',['yes', 'hahahahaha']);
+	broadcast.trigger('GrowUp');				// again
+	broadcast.trigger('NonregisterEvent'); 	// this call is safely ignored
 </script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+.idea
+.project
+.settings
+.externalToolBuilders
+.DS_Store
+.orig
+.tmp
+*.log
+.module-cache
+bower_components
+test/bower_components
+node_modules
+dist
+release
+
+

@@ -27,11 +27,20 @@
         }
     };
 
+    var nativeIsArray = Array.isArray;
+    var isArray = nativeIsArray || function (obj) {
+            return toString.call(obj) === '[object Array]';
+        };
+
     var components = {};
 
     var trigger = function (event, args, context) {
         var e = event || false;
         var a = args || [];
+        if (!isArray(a)) {
+            a = [a];
+        }
+
         if (!e) {
             return;
         }

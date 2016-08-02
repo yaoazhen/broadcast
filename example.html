@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<title>Example of the most easy way to implement the broadcast</title>
-<script type="text/javascript" src="broadcast.js"></script>
+    <meta charset="UTF-8"/>
+    <title>Example of the most easy way to implement the broadcast</title>
+    <script type="text/javascript" src="broadcast.js"></script>
 </head>
 <body>
-	<h1>Results in the console</h1>
+<h1>Results in the console</h1>
 <script type="text/javascript">
-	broadcast.add('Client1', function() {
-		var nAge = 25;
-		var sName = 'Zane';
+    broadcast.add('Client1', function () {
+        var nAge = 25;
+        var sName = 'Zane';
 
-		return {
-			Initialize: function() {
-				console.log(sName + ' Initialize');
-			},
-			GrowUp: function() {
-				nAge++;
-				console.log('My age is '+ nAge +'!!!')
-			},
-			SaySomething: function(str, str1) {
-				console.log(sName + ' said: ' + str + ' '+ str1);
-			}
-		};
-	}());
+        return {
+            Initialize: function () {
+                console.log(sName + ' Initialize');
+            },
+            GrowUp: function (args) {
+                nAge++;
+                console.log('argus:', args)
+                console.log('My age is ' + nAge + '!!!')
+            },
+            SaySomething: function (str, str1) {
+                console.log(sName + ' said: ' + str + ' ' + str1);
+            }
+        };
+    }());
 
 
-	/* Call */
-	broadcast.trigger('Initialize');
-	broadcast.trigger('GrowUp');
-	broadcast.trigger('SaySomething',['yes', 'hahahahaha']);
-	broadcast.trigger('GrowUp');				// again
-	broadcast.trigger('NonregisterEvent'); 	// this call is safely ignored
+    /* Call */
+    broadcast.trigger('Initialize');
+    broadcast.trigger('GrowUp');
+    broadcast.trigger('SaySomething', ['yes', 'hahahahaha']);
+    broadcast.trigger('GrowUp', {a: 1});				// again
+    broadcast.trigger('NonregisterEvent'); 	// this call is safely ignored
 </script>
 </body>
 </html>

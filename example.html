@@ -13,14 +13,14 @@
 		var sName = 'Zane';
 
 		return {
-			onInitialize: function() {
+			Initialize: function() {
 				console.log(sName + ' Initialize');
 			},
-			onGrowUp: function() {
+			GrowUp: function() {
 				nAge++;
 				console.log('My age is '+ nAge +'!!!')
 			},
-			onSaySomething: function(str, str1) {
+			SaySomething: function(str, str1) {
 				console.log(sName + ' said: ' + str + ' '+ str1);
 			}
 		};

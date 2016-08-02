@@ -37,10 +37,10 @@
 		}
 
 		for (var c in components){
-			if(typeof components[c]['on' + e] == "function"){
+			if(typeof components[c][e] == "function"){
 				try{
 					var s = context || components[c];
-					components[c]['on' + e].apply(s, a);
+					components[c][e].apply(s, a);
 				}
 				catch (err){
 					base_station_debug('BaseStation error', e, a, s, err);
@@ -61,7 +61,7 @@
 				removeComponent(name);
 			}
 			else{
-				throw new Error('BaseStation name conflict: ' + name);
+				throw new Error('component name conflict: ' + name);
 			}
 		}
 

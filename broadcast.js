@@ -21,9 +21,9 @@
         this[name] = factory();
     }
 })('broadcast', function () {
-    var base_station_debug = function () {
+    var _debug = function () {
         if (console) {
-            console.dir(args);
+            console.dir(arguments);
         }
     };
 
@@ -52,7 +52,7 @@
                     components[c][e].apply(s, a);
                 }
                 catch (err) {
-                    base_station_debug('BaseStation error', e, a, s, err);
+                    _debug('BaseStation error', e, a, s, err);
                 }
             }
         }
